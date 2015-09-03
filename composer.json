@@ -1,0 +1,35 @@
+{
+    "name": "nikolaykolesnichenko/huntererror",
+    "type": "october-plugin",
+    "description": "OctoberCms plugin for catching js error and sending to GoogleAnalytics",
+    "keywords": [
+        "octoberCms",
+        "october-plugin",
+        "js-error",
+        "google-analytics"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "n.kolesnichenko",
+            "email": "n.a.kolesnichenko@yandex.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "~1.0",
+        "rainlab/googleanalytics": "dev-master",
+    },
+    "autoload": {
+        "psr-4": {
+            "NikolayKolesnichenko\\HunterError\\": ""
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/rainlab/googleanalytics-plugin"
+        }
+    ],
+    "minimum-stability" : "dev"
+}
