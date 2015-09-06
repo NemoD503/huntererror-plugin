@@ -1,7 +1,7 @@
 <?php namespace NikolayKolesnichenko\HunterError;
 
 use System\Classes\PluginBase;
-
+use NikolayKolesnichenko\HunterError\Components\Hunter;
 /**
  * HunterError Plugin Information File
  */
@@ -27,5 +27,15 @@ class Plugin extends PluginBase
      * @var array Plugin dependencies
      */
     public $require = ['RainLab.GoogleAnalytics'];
+
+    /**
+    * Returns information about registered components
+    */
+    public function registerComponents()
+    {
+        return [
+            Hunter::class => 'hunter'
+        ];
+    }
 
 }
