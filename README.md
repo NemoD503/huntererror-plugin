@@ -20,9 +20,8 @@ You can choose any of these methods:
 
 3. Composer
 
-    `composer require nikolaykolesnichenko/huntererror`
-
-    `php artisan october:up`
+    - `composer require nikolaykolesnichenko/huntererror`
+    - `php artisan october:up`
 
     (But it is not recomended to install plugin by composer, because rainlab.google Analytics plugin package still do not have type : "october-plugin", so googleAnalytics will be installed into vendor folder.)
 
