@@ -45,3 +45,9 @@ Requirements
 -----------
 
 This plugin extends [RainLab.Googleanalytics](http://octobercms.com/plugin/rainlab-googleanalytics) plugin.
+
+
+Plans
+-----
+
+You will can see all errors in the dashboard-widget, so You will not need to open Google Analytics.
