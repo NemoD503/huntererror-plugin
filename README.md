@@ -5,6 +5,12 @@ It`s alpha version of plugin.
 
 This plugin catches js-error on your site and sends it to Google Analitics, so you can always catch all js errors and fix it.
 
+Details
+-------
+
+The problem: All backend (php) errors You can see in log files, but what about js-errors? You think, that your site work fine, but may be your visitors have many errors and you do not know about it? There are many browsers and many cases, when your js code can be broken. How You can catch these errors? Hunter Error plugin can catch ALL js-errors and send them to your google Analytics, like an events. Now You see all errors and can fix them.
+
+
 Installation
 ------------
 
