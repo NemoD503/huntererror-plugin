@@ -1,0 +1,42 @@
+<div class="report-widget">
+    <h3><?= e($this->property('title')) ?></h3>
+
+    <?php if (!isset($error)): ?>
+        <div class="table-container">
+            <table class="table data" data-control="rowlink">
+                <thead>
+                    <tr>
+                        <th><span>Event Category</span></th>
+                        <th><span>Event Action</span></th>
+                        <th><span>Event Label</span></th>
+                        <th><span>% of all events</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($rows as $row):
+                        $percentage = $total > 0 ? round($row[3]/$total*100, 2) : 0;
+                    ?>
+                        <tr>
+                            <td><?= e($row[0]) ?></td>
+                            <td><?= e($row[1]) ?></td>
+                            <td><?= e($row[2]) ?></td>
+                            <td>
+                                <div class="progress">
+                                    <div class="bar" style="width: <?= $percentage.'%' ?>"></div>
+                                    <?= $percentage.'%' ?>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                    <?php if (!count($rows)): ?>
+                        <tr>
+                            <td colspan="3">There were no events in the selected interval.</td>
+                        </tr>
+                    <?php endif ?>
+                </tbody>
+            </table>
+        </div>
+    <?php else: ?>
+        <p class="flash-message static warning"><?= e($error) ?></p>
+    <?php endif ?>
+</div>

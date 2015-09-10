@@ -2,6 +2,8 @@
 
 use System\Classes\PluginBase;
 use NikolayKolesnichenko\HunterError\Components\Hunter;
+use NikolayKolesnichenko\HunterError\ReportWidgets\Events;
+
 /**
  * HunterError Plugin Information File
  */
@@ -35,6 +37,16 @@ class Plugin extends PluginBase
     {
         return [
             Hunter::class => 'hunter'
+        ];
+    }
+
+    public function registerReportWidgets()
+    {
+        return [
+            Events::class => [
+                'label'   => 'Google Analytics events overview',
+                'context' => 'dashboard'
+            ]
         ];
     }
 
