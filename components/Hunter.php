@@ -8,8 +8,8 @@ class Hunter extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Hunter js-errors',
-            'description' => 'This component catches js-error and sends it to Google Analytics'
+            'name'        => 'Hunter JavaScript errors',
+            'description' => 'This component catches JavaScript errors and sends it to Google Analytics'
         ];
     }
 }

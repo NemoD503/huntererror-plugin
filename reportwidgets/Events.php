@@ -13,6 +13,12 @@ use Exception;
 class Events extends ReportWidgetBase
 {
 
+    /**
+     * filter for GA request
+     * @var string
+     */
+    protected $filter = '';
+
      public function defineProperties()
     {
         return [
@@ -24,8 +30,8 @@ class Events extends ReportWidgetBase
                 'validationMessage' => 'The Widget Title is required.'
             ],
             'category' => [
-                'title'             => 'Filter only one category',
-                'default'           => 'JavaScript Error',
+                'title'             => 'Category filter',
+                'default'           => 'JavaScript Error, jQuery Error',
                 'type'              => 'string',
                 'validationPattern' => '^.+$',
                 'validationMessage' => 'The category is required.'
@@ -60,8 +66,11 @@ class Events extends ReportWidgetBase
     protected function loadData()
     {
         $days = $this->property('days');
-        if (!$days)
+        if (!$days){
             throw new ApplicationException('Invalid days value: '.$days);
+        }
+
+        $this->createFilter();
 
         $obj = Analytics::instance();
         $data = $obj->service->data_ga->get(
@@ -72,7 +81,7 @@ class Events extends ReportWidgetBase
                                         [
                                             'dimensions' => 'ga:eventCategory, ga:eventAction, ga:eventLabel',
                                             'sort' => '-ga:totalEvents',
-                                            'filters' => 'ga:eventCategory=='.$this->property('category', 'JavaScript Error'),
+                                            'filters' => $this->filter,
                                             'max-results' => $this->property('number', 10)
                                         ]
                                     );
@@ -85,5 +94,21 @@ class Events extends ReportWidgetBase
             $total += $row[3];
 
         $this->vars['total'] = $total;
+    }
+    /**
+     * Create filter string (see docs https://developers.google.com/analytics/devguides/reporting/core/v3/reference#filters)
+     * You can extend this function
+     */
+    public function createFilter()
+    {
+        $categories = explode(',', $this->property('category', 'JavaScript Error, jQuery Error'));
+        foreach ($categories as $key => $category) {
+            if (!empty($category)) {
+                $categories[$key] = 'ga:eventCategory=='.rawurlencode(trim($category));
+            }else{
+                unset($categories[$key]); //if user sets empty category by typing two comma together, or last char comma
+            }
+        }
+        $this->filter = implode(',', $categories);
     }
 }

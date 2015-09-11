@@ -1,11 +1,13 @@
 {
     "name": "nikolaykolesnichenko/huntererror",
     "type": "october-plugin",
-    "description": "OctoberCms plugin for catching js error and sending to GoogleAnalytics",
+    "description": "OctoberCms plugin for catching JavaScript error and sending to GoogleAnalytics",
     "keywords": [
         "octoberCms",
         "october-plugin",
         "js-error",
+        "JavaScript error",
+        "hunter",
         "google-analytics"
     ],
     "license": "MIT",
