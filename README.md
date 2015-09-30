@@ -1,7 +1,5 @@
 # Hunter Error
 
-It`s beta version of plugin.
-
 This plugin handles JavaScript errors on your website front-end and sends them to Google Analytics, so you can always catch all JavaScript errors and fix it.
 
 ## Details
@@ -48,3 +46,7 @@ After installation You can paste Hunter component to any layout, but you need to
 {% component 'googleTracker' %}
 {% component 'hunter' %}
 ```
+
+##Thanks
+
+Thanks @[kosiasik](https://github.com/kosiasik) for [idea](http://habrahabr.ru/post/149926/).
